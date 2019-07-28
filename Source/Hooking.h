@@ -12,7 +12,7 @@ typedef bool(* fpIsDLCPresent)(std::uint32_t dlcHash);
 //removed typedef __int64(__cdecl* fpGetPlayerAddress)(Player);
 typedef bool(__cdecl* GetEventData)(int eventGroup, int eventIndex, uint64_t* argStruct, int argStructSize);
 //removed typedef bool(__cdecl* fpSetName)();
-//removed (I believe) typedef bool(__cdecl* fpIncrementStatHook)(__int64 a1, __int64 a2, float a3);
+typedef bool(__cdecl* fpIncrementStatHook)(__int64 a1, __int64 a2, float a3);
 //removed typedef void(__cdecl* addOwnedExplosion)(null);
 //removed typedef bool(__cdecl* fpSetLobbyTime)(int, int, int);
 typedef bool(__cdecl* fpStatSetInt)(Hash statName, int value, BOOL save);
