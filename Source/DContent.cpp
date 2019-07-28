@@ -69,3 +69,4 @@ void Features::sixstars(bool toggle)
 		GAMEPLAY::SET_FAKE_WANTED_LEVEL(0);
 	}
 }
+bool Features::userHotkey = false;
