@@ -1,6 +1,5 @@
 //NativeInvoker.cpp
 #include "stdafx.h"
-#include "spoofer.h"
 #include <cstdio>
 #include <intrin.h>
 
