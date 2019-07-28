@@ -1,6 +1,35 @@
 #pragma once
 #include "stdafx.h"
 
+//Functions
+
+char* CharKeyboard(char* windowName = "", int maxInput = 21, char* defaultText = "") 
+{
+	GAMEPLAY::DISPLAY_ONSCREEN_KEYBOARD(0, "", "", defaultText, "", "", "", maxInput);
+	while (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD() == 0) WAIT(0);
+	if (!GAMEPLAY::GET_ONSCREEN_KEYBOARD_RESULT()) return "";
+	return GAMEPLAY::GET_ONSCREEN_KEYBOARD_RESULT();
+}
+int NumberKeyboard() 
+{
+	GAMEPLAY::DISPLAY_ONSCREEN_KEYBOARD(1, "", "", "", "", "", "", 10);
+	while (GAMEPLAY::UPDATE_ONSCREEN_KEYBOARD() == 0) WAIT(0);
+	if (!GAMEPLAY::GET_ONSCREEN_KEYBOARD_RESULT()) return 0;
+	return atof(GAMEPLAY::GET_ONSCREEN_KEYBOARD_RESULT());
+}
+
+Vector3 TPCoords;
+void TPto(Vector3 Coords)
+{
+	int Handle = PLAYER::PLAYER_PED_ID();
+	if (PED::IS_PED_IN_ANY_VEHICLE(Handle, 0))
+	{
+		ENTITY::SET_ENTITY_COORDS(PED::GET_VEHICLE_PED_IS_IN(Handle, false), Coords.x, Coords.y, Coords.z, 0, 0, 0, 1);
+	}
+	else
+		ENTITY::SET_ENTITY_COORDS(Handle, Coords.x, Coords.y, Coords.z, 0, 0, 0, 1);
+}
+//you did not just put those in list, please say its a joke, please
 char* pedModels[] = { //Model Changer
 	"A_C_Boar","A_C_Chickenhawk","A_C_Chimp","A_C_Chop","A_C_Cormorant","A_C_Cow","A_C_Coyote","A_C_Crow","A_C_Deer","A_C_Fish","A_C_Hen","A_C_Husky","A_C_MtLion","A_C_Pig","A_C_Pigeon","A_C_Rat","A_C_Retriever",
 	"A_C_Rhesus","A_C_Rottweiler","A_C_Seagull","A_C_SharkTiger","A_C_shepherd","A_F_M_Beach_01","A_F_M_BevHills_01","A_F_M_BevHills_02","A_F_M_BodyBuild_01","A_F_M_Business_02","A_F_M_Downtown_01","A_F_M_EastSA_01",
