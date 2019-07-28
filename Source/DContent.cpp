@@ -55,8 +55,8 @@ void Features::UpdateLoop()
 //our first example
 //define both in DContent.h, the bool as extern bool sixstar_bool, the void as void sixstar(bool toggle)
 //make sure to put the proper parameters maybe you aren't using bool toggle or you renamed it
-bool Features::sixstars = false;
-void Features::SixStars(bool toggle)
+bool Features::sixstars_bool = false;
+void Features::sixstars(bool toggle)
 {
 //if this is true we want to make good use of set fake wanted level
 	if (toggle == true)
