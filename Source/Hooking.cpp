@@ -275,9 +275,6 @@ bool Hooking::HookNatives()
 	if ((status != MH_OK && status != MH_ERROR_ALREADY_CREATED) || MH_EnableHook(Hooking::is_DLC_present) != MH_OK)
 		return false;
 	Hooking::m_hooks.push_back(Hooking::is_DLC_present);
-	MH_CreateHook(Hooking::GetScriptHandlerIfNetworked, hkGetScriptHandlerIfNetworked, (void**)&ogGetScriptHandlerIfNetworked);
-	MH_EnableHook(Hooking::GetScriptHandlerIfNetworked);
-	Hooking::m_hooks.push_back(Hooking::GetScriptHandlerIfNetworked);
 	return true;
 }
 
