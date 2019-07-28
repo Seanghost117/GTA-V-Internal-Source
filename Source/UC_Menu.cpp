@@ -62,3 +62,72 @@ void ScriptMain() {
 	srand(GetTickCount());
 	main();
 }
+bool ControlScript::IsInitialized() {
+	return s_initialized;
+}
+
+void ControlScript::Initialize() {
+	s_initialized = true;
+}
+
+void ControlScript::Destroy() {
+
+}
+
+void ControlScript::Tick() {
+	Menu::Checks::Controlls();
+}
+
+
+
+bool UpdateScript::IsInitialized() {
+	return s_initialized;
+}
+
+void UpdateScript::Initialize() {
+	s_initialized = true;
+}
+
+void UpdateScript::Destroy() {
+
+}
+
+void UpdateScript::Tick() {
+	Features::UpdateLoop();
+}
+
+
+
+bool DisplayScript::IsInitialized() {
+	return s_initialized;
+}
+
+void DisplayScript::Initialize() {
+	s_initialized = true;
+}
+
+void DisplayScript::Destroy() {
+
+}
+void DisplayScript::Tick() {
+//instructionals
+}
+bool HotkeyScript::IsInitialized() {
+	return s_initialized;
+}
+
+void HotkeyScript::Initialize() {
+	s_initialized = true;
+}
+
+void HotkeyScript::Destroy() {
+
+}
+
+void HotkeyScript::Tick() {
+
+}
+
+void initToggle() {
+
+}
