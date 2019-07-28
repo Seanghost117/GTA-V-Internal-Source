@@ -10,7 +10,7 @@ void Unload::unload_handler() {
 
 		FreeConsole();
 
-		FreeLibraryAndExitThread(reinterpret_cast<HMODULE>(yoink), 1);
+		FreeLibraryAndExitThread(reinterpret_cast<HMODULE>(Gotem), 1);
 	}
 }
 
