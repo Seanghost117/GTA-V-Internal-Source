@@ -3,7 +3,7 @@ namespace Features {
 	void UpdateLoop();
   
   //example
-  extern bool sixstar_bool;
-  void sixstar(bool toggle);
+  extern bool sixstars_bool;
+  void sixstars(bool toggle);
   
 }
