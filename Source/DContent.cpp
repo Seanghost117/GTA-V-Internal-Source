@@ -49,7 +49,9 @@ Vector3 multiplyVector(Vector3 vector, float inc) {
 void Features::UpdateLoop()
 {
    //self options
-   sixstars_bool ?sixstars(true) : NULL;
+  	sixstars_bool ?sixstars(true) : NULL; // give player "6 stars"
+	Neverwanted ? neverwanted(true) : NULL; //never wanted, using memory
+	
 }
 
 //our first example
@@ -68,5 +70,12 @@ void Features::sixstars(bool toggle)
 	{
 		GAMEPLAY::SET_FAKE_WANTED_LEVEL(0);
 	}
+}
+//in this example lets edit memory to make never wanted, lets do so like this:
+bool Features::Neverwanted = false; //lets have the bool set to false first
+void Features::neverwanted(bool toggle)
+{	//while this is toggles we are going to be taking the local player, getting info and in this case the wanted level, and lets set it 
+	//to 0, and loop so that you are not wanted, the offsets are updated so this will work
+	Memory::set_value<int>({ OFFSET_PLAYER, OFFSET_PLAYER_INFO, OFFSET_PLAYER_INFO_WANTED }, 0);
 }
 bool Features::userHotkey = false;
