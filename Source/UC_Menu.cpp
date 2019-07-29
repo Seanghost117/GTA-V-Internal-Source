@@ -45,6 +45,7 @@ void main() {
     {
         Menu::Title("Unknown Cheats"); 
         Menu::Beg("Self Options");
+	    Menu::Toggle("Never Wanted", Features::Neverwanted, [] { Features::neverwanted(Features::Neverwanted); });
         if (Menu::Option("Commit Suicide")) { Memory::set_value<float>({ OFFSET_PLAYER , OFFSET_ENTITY_HEALTH }, 0); } //structs.h, set the players health to none
         Menu::Toggle("6 Wanted Stars", Features::sixstars_bool, [] { Features::sixstars(Features::sixstars_bool); });
         Menu::Option("Clean Ped", [] { int Ped = PLAYER::PLAYER_PED_ID(); PED::CLEAR_PED_BLOOD_DAMAGE(Ped); PED::RESET_PED_VISIBLE_DAMAGE(Ped); });
