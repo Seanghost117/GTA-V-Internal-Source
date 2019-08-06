@@ -38,24 +38,34 @@ void main() {
         Menu::Title("Unknown Cheats"); //your p2c name would typically go here :)
         Menu::Beg("Unknown Cheats Internal"); //The header bar under the header, I use custom headers so this is needed for me, and so users know where they are
         Menu::MenuOption("~b~Self Options", self); //self options in blue, the second arguement is the case we go to when it is clicked, you can find them all in gui.h
-        Menu::End("~b~Unknowncheats.me"); //our footer
-    }
-    break;
-    case self:
-    {
+        Menu::MenuOption("Misc", misc);
+	Menu::End("~b~Unknowncheats.me"); //our footer
+	}
+	break;
+	case self:
+	{
         Menu::Title("Unknown Cheats"); 
         Menu::Beg("Self Options");
-	    Menu::Toggle("Never Wanted", Features::Neverwanted, [] { Features::neverwanted(Features::Neverwanted); });
-        if (Menu::Option("Commit Suicide")) { Memory::set_value<float>({ OFFSET_PLAYER , OFFSET_ENTITY_HEALTH }, 0); } //structs.h, set the players health to none
-        Menu::Toggle("6 Wanted Stars", Features::sixstars_bool, [] { Features::sixstars(Features::sixstars_bool); });
+	Menu::Toggle("Never Wanted", Features::Neverwanted, [] { Features::neverwanted(Features::Neverwanted); });
+	if (Menu::Option("Commit Suicide")) { Memory::set_value<float>({ OFFSET_PLAYER , OFFSET_ENTITY_HEALTH }, 0); } //structs.h, set the players health to none
+	Menu::Toggle("6 Wanted Stars", Features::sixstars_bool, [] { Features::sixstars(Features::sixstars_bool); });
         Menu::Option("Clean Ped", [] { int Ped = PLAYER::PLAYER_PED_ID(); PED::CLEAR_PED_BLOOD_DAMAGE(Ped); PED::RESET_PED_VISIBLE_DAMAGE(Ped); });
         if (Menu::Option("Random Outfit")) { PED::SET_PED_RANDOM_COMPONENT_VARIATION(PLAYER::PLAYER_PED_ID(), true); }
         Menu::End("Control Yourself!"); //our footer
-    }
-    break;
+	}
+	break;
+	case misc:
+	{
+	if (Menu::Option("Skip Cutscenes")) {
+		//Gets the current scene and ends it...well immediately
+		CUTSCENE::STOP_CUTSCENE_IMMEDIATELY(); //just a simple native, not too hard, right?
+	}
+	Menu::End("~b~Unknowncheats.me");
+	}
+	break;
     }
     Menu::Beg();
-		Menu::End();
+	Menu::End();
 		WAIT(0);
   }
 }
