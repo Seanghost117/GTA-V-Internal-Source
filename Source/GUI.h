@@ -5,6 +5,7 @@ enum SubMenus {
 	NOMENU,
 	mainmenu,
 	self,
+	misc,
 };
 
  struct VECTOR2 {
