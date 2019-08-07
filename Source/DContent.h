@@ -10,5 +10,12 @@ namespace Features {
 	//never wanted
 	extern bool Neverwanted;
 	void neverwanted(bool toggle);
+	//editing the wanted level
+	extern int PlyrWntLevel;
+	void ChangeWanted(int level);
+	int GetWanted(Player player);
+	//super jumping
+	extern bool sjump_bool;
+	void sjump(bool toggle);
   
 }
