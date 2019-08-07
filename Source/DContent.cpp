@@ -51,6 +51,9 @@ void Features::UpdateLoop()
    //self options
   	sixstars_bool ?sixstars(true) : NULL; // give player "6 stars"
 	Neverwanted ? neverwanted(true) : NULL; //never wanted, using memory
+	PlyrWntLevel = GetWanted(PLAYER::PLAYER_ID()); //always have the wanted level set to the current wanted, we can change this though
+	sjump_bool ? sjump(true) : NULL; //superjump ez
+	
 	
 }
 
@@ -79,3 +82,14 @@ void Features::neverwanted(bool toggle)
 	Memory::set_value<int>({ OFFSET_PLAYER, OFFSET_PLAYER_INFO, OFFSET_PLAYER_INFO_WANTED }, 0);
 }
 bool Features::userHotkey = false;
+//setting the level based off the current ineger, between 0-5. We will get the local player, local player info and the wanted level info
+int Features::PlyrWntLevel = 0;
+void Features::ChangeWanted(int level) {
+	Memory::set_value<int>({ OFFSET_PLAYER, OFFSET_PLAYER_INFO, OFFSET_PLAYER_INFO_WANTED }, Features::playerWantedLevel);
+}
+//
+bool Features::sjump_bool = false;
+void Features::sjump(bool toggle)
+{
+	Memory::set_value<int>({ 0x08, 0x10B8, 0x1F8 }, 0x4000u);
+}
