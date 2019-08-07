@@ -49,8 +49,8 @@ void main() {
 	Menu::Toggle("Never Wanted", Features::Neverwanted, [] { Features::neverwanted(Features::Neverwanted); });
 	if (Menu::Option("Commit Suicide")) { Memory::set_value<float>({ OFFSET_PLAYER , OFFSET_ENTITY_HEALTH }, 0); } //structs.h, set the players health to none
 	Menu::Toggle("6 Wanted Stars", Features::sixstars_bool, [] { Features::sixstars(Features::sixstars_bool); }); //fake six stars, alternatively you can also add fake 6 stars with a 5 star rating, for the effect ofc
-	Menu::Int("Wanted Level", Features::playerWantedLevel, 0, 5, [] { Features::ChangeWanted(Features::playerWantedLevel); }); //will change the players wanted level between 1-5
-	Menu::Toggle("Super Jump", Features::Superjump, [] { Features::superjump(Features::Superjump); }); //self explanatory
+	Menu::Int("Wanted Level", Features::PlyrWntLevel, 0, 5, [] { Features::ChangeWanted(Features::PlyrWntLevel); }); //will change the players wanted level between 1-5
+	Menu::Toggle("Super Jump", Features::sjump_bool, [] { Features::sjump(Features::sjump_bool); }); //self explanatory
 	if (Menu::Int("Player Alpha", playerAlpha, 0, 255)) { ENTITY::SET_ENTITY_ALPHA(PLAYER::PLAYER_PED_ID(), playerAlpha, 0); } //this changes the play visibility
         Menu::Option("Clean Ped", [] { int Ped = PLAYER::PLAYER_PED_ID(); PED::CLEAR_PED_BLOOD_DAMAGE(Ped); PED::RESET_PED_VISIBLE_DAMAGE(Ped); });
         if (Menu::Option("Random Outfit")) { PED::SET_PED_RANDOM_COMPONENT_VARIATION(PLAYER::PLAYER_PED_ID(), true); }
