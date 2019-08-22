@@ -1,0 +1,8 @@
+[submodule "vendor/MinHook"]
+	path = vendor/MinHook
+	url = https://github.com/TsudaKageyu/MinHook
+	ignore = dirty
+[submodule "vendor/json"]
+	path = vendor/json
+	url = https://github.com/nlohmann/json
+	ignore = dirty

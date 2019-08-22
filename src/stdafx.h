@@ -7,8 +7,6 @@
 
 #include "targetver.h"
 
-#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
-
 // Windows Library Files:
 #pragma comment(lib, "ws2_32.lib")
 #pragma comment(lib, "Winmm.lib")
@@ -16,6 +14,7 @@
 // Windows Header Files:
 #include <windows.h>
 #include <Mmsystem.h>
+#include <intrin.h>
 #include <atomic>
 #include <chrono>
 #include <thread>
